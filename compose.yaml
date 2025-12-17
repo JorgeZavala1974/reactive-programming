@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  reactive-programming:
+    build: ./
+#    restart: always
+    ports:
+      - "8060:8060"
+    depends_on:
+      - database
+    environment:
+      DB_URL: "r2dbc:postgresql://localhost:5432/mejoredubdd"
+      DB_USER: "postgres"
+      DB_PASSWORD: "V4l3r1a$20"
+  database:
+    image: postgresql:latest
+#    restart: always
+    hostname: database
+    environment:
+      MYSQL_DATABASE: "mejoredubdd"
+      MYSQL_PASSWORD: "postgres"
+      MYSQL_ROOT_PASSWORD: "V4l3r1a$20"
+    ports:
+      - "5432:5432"
+    volumes:
+      - database:/var/lib/mysql
+
+volumes:
+  database:
+#  jenkins:

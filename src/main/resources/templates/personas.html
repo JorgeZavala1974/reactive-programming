@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Personas</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombrer Completo</th>
+            <th>Correo</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Bloquerado</th>
+        </tr>
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.id_persona}"></td>
+            <td th:text="${persona.cx_nombre_completo}"></td>
+            <td th:text="${persona.cx_correo}"></td>
+            <td th:text="${persona.df_fecha_nacimiento}"></td>
+            <td th:text="${persona.lock_flag}"></td>
+        </tr>
+    </table>
+</body>
+</html>
